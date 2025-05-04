@@ -68,7 +68,7 @@ merkle-core-java
 │           ├── MerkleProofTest.java
 │           └── MerkleTreeTest.java
 └── lib
-    └── junit-4.13.2.jar  (test‑time only)
+    └── junit-platform-console-standalone-1.12.0.jar
 </code></pre>
 
 ## API Overview
