@@ -127,15 +127,22 @@ System.out.println("Proof valid? " + verified);  // true
 - `bash`, `make` or any modern IDE if you prefer point‑and‑click.
 ### Command‑line build (Unix‑like)
 A minimal Makefile is provided in *extras/Makefile* (optional).  Otherwise:
-```java
+```bash
+# Compile source files
 mkdir -p out
 javac -d out $(find src/main/java -name "*.java")
-# compile & run tests
-javac -cp lib/junit-4.13.2.jar:out -d out/test $(find src/test/java -name "*.java")
-java  -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:out org.junit.runner.JUnitCore it.unicam.cs.asdl2425.mp1.MerkleTreeTest
+
+# Compile test files
+javac -cp lib/junit-platform-console-standalone-1.12.0.jar:out \
+      -d out/test $(find src/test/java -name "*.java")
+
+# Run tests using JUnit Platform Console
+java -jar lib/junit-platform-console-standalone-1.12.0.jar \
+     --classpath out:out/test \
+     --scan-classpath
 ```
 ### IDE import
-1. File -> New -> Project from Existing Sources.
+1. *File* -> *New* -> *Project from Existing Sources*.
 2. Choose *Java* and point to the repository root.
 3. Mark `src/main/java` as *Sources* and `src/test/java` as *Test Sources*.
 4. Add `lib/junit-platform-console-standalone-1.12.0.jar` to the classpath.
