@@ -9,7 +9,7 @@ Robust Java 8 implementation of Merkle trees, hash‑linked lists and inclusion
 - [Project Structure](#project-structure)
 - [API Overview](#api-overview)
 - [Usage Examples](#usage-examples)
-- [Building & Testing](#building-&-testing)
+- [Building and Testing](#building-and-testing)
 - [Extending the Library](#extending-the-library)
 - [Performance Notes](#performance-notes)
 - [Contributing](#contributing)
@@ -120,7 +120,7 @@ MerkleProof proof = tree.getMerkleProof("Charlie");
 boolean verified = proof.proveValidityOfData("Charlie");
 System.out.println("Proof valid? " + verified);  // true
 ```
-## Building & Testing
+## Building and Testing
 
 ### Prerequisites
 - **JDK 8** or later (the code does not rely on features introduced after Java 8).
