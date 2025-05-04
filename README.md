@@ -8,12 +8,12 @@ Robust Java 8 implementation of Merkle trees, hash‑linked lists and inclusion
 - [Quick Start](#quick-start)
 - [Project Structure](#project-structure)
 - [API Overview](#api-overview)
-- [Usage Examples](usage-examples)
-- [Building & Testing](building-&-testing)
-- [Extending the Library](extending-the-library)
-- [Performance Notes](performance-notes)
-- [Contributing](contributing)
-- [Licence](licence)
+- [Usage Examples](#usage-examples)
+- [Building & Testing](#building-&-testing)
+- [Extending the Library](#extending-the-library)
+- [Performance Notes](#performance-notes)
+- [Contributing](#contributing)
+- [Licence](#licence)
 
 ## Motivation
 A Merkle tree (a.k.a. *binary hash tree*) allows any consumer to verify the authenticity and integrity of a large data set by exchanging only *O(log n)* data instead of the whole collection.  The same principle underlies blockchains, peer‑to‑peer file verification (THEX), Amazon Dynamo anti‑entropy repair and many more.
