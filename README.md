@@ -40,11 +40,12 @@ git clone https://github.com/riccardocatervi/merkle-core-java
 cd merkle-core-java
 
 # Compile source & tests (plain javac)
-javac -d out $(find src/main/java -name "*.java")
-javac -cp lib/junit-4.13.2.jar:out -d out/test $(find src/test/java -name "*.java")
+javac -d out src/main/java/com/riccardo/merkle/**/*.java src/test/java/com/riccardo/merkle/**/*.java
 
-# Run a sample program
-java -cp out it.unicam.cs.asdl2425.mp1.Sample
+# Run JUnit 5 Tests
+java -jar lib/junit-platform-console-standalone.jar \
+  --class-path out \
+  --scan-class-path
 ```
 
 **Tip** Import the project as a *Plain Java* module in IntelliJ IDEA / Eclipse.  The directory layout follows the standard Maven convention (`src/main/java`, `src/test/java`) so your IDE will recognise the sources automatically.
@@ -81,7 +82,7 @@ merkle-core-java
 | `MerkleTree<T>`  | Builds a balanced tree from a `HashLinkedList` of payload, exposes:<br>`validateData`, `validateBranch`, `validateTree`, `getMerkleProof` for leaves or arbitrary branches, `findInvalidDataIndices` to pinpoint corrupted leaves.<br>Accessor methods `getRoot()`, `getWidth()`, `getHeight()` are O(1). |
 | `MerkleProof`    | Self‑contained list of sibling hashes (“audit path”). Includes:<br>`proveValidityOfData(Object)`, `proveValidityOfBranch(MerkleNode)` that recompute the root hash in O(k) where *k = log₂ n*. |
 
-## Using Examples
+## Usage Examples
 
 ### 1 – Building and Validating a Tree
 
@@ -120,6 +121,7 @@ boolean verified = proof.proveValidityOfData("Charlie");
 System.out.println("Proof valid? " + verified);  // true
 ```
 ## Building & Testing
+
 ### Prerequisites
 - **JDK 8** or later (the code does not rely on features introduced after Java 8).
 - `bash`, `make` or any modern IDE if you prefer point‑and‑click.
